@@ -4,20 +4,16 @@
 
 # Step 1:
 # This is your Docker ID/path
-# dockerpath=<>
-dockerpath="0024610/udacityproj"
+dockerpath="amrakmal/udacity"
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-kubectl run "0024610/udacityproj"\
-    --generator=run-pod/v1\
-    --image=$dockerpath\
-    --port=80 --labels app="0024610/udacityproj"
+kubectl run udacity --image=$dockerpath --port=80
 
 # Step 3:
 # List kubernetes pods
-kubectl get pod
+kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
-kubectl port-forward "0024610/udacityproj" 8000:80
+kubectl port-forward udacity 8000:80
