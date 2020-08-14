@@ -54,7 +54,7 @@ def predict():
         """
     
     # Logging the input payload
-    LOG.info(f"Making a new prediction as desired: \n")
+    LOG.info("Making a new prediction as desired: \n")
     json_payload = request.json
     LOG.info(f"JSON payload: \n{json_payload}")
     inference_payload = pd.DataFrame(json_payload)
