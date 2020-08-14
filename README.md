@@ -40,8 +40,19 @@ Your project goal is to operationalize this working, machine learning microservi
 This operation may take a while to finish.
 
 ### Kubernetes Steps
-
+Our goal:
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
-* Run via kubectl
+* Run via kubectl 
+<br />
+ Minikub MUST be running locally and started before being able to use `kubectl` and execute its commands. <br />
+Steps:
+1- Download and install minikube locally accroding to your operating system
+2- To start minikube run `minikube start`
+3- Install `kubectl` locally
+4- Make sure it's installed correctly by running `minikube version`
+4- Check it works by running a command `kubectl version`
+Now we're able to make predictions. <br />
+1- Run `./run_docker.sh`
+2- Run `./make_prediction.sh`
