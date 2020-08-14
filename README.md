@@ -22,7 +22,7 @@ Your project goal is to operationalize this working, machine learning microservi
 ## Setup the Environment
 
 * Create a virtualenv and activate it
-  `python3 -m venv ~/.devops`
+  `python3 -m venv ~/.devops` <br />
   `source ~/.devops/bin/activate`
   
 * Run `make install` to install the necessary dependencies
@@ -32,6 +32,12 @@ Your project goal is to operationalize this working, machine learning microservi
 1. Standalone:  `python app.py`
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
+
+### Upload Dockerfile to DockerHub
+1. Create an account on DockerHub and have a unique ID 
+2. `./run_docker.sh`
+3. `./upload_docker.sh`
+This operation may take a while to finish.
 
 ### Kubernetes Steps
 
