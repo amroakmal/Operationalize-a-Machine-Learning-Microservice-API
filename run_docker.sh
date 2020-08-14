@@ -4,7 +4,7 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-docker build -t 0024610/udacityproj .
+docker build -t udacityproj .
 
 # Step 2: 
 # List docker images

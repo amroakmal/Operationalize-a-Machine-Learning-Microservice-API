@@ -12,8 +12,8 @@ dockerpath="0024610/udacityproj"
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker login && \
-docker image tag udacityproj "0024610/udacityproj"
+docker tag udacityproj $dockerpath
 
 # Step 3:
 # Push image to a docker repository
-docker image push "0024610/udacityproj"
+docker push $dockerpath
