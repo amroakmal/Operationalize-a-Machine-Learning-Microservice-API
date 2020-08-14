@@ -4,11 +4,11 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-docker build --tag=udacity .
+docker build -t udacity .
 
 # Step 2: 
 # List docker images
-docker image ls
+docker images
 
 # Step 3: 
 # Run flask app
