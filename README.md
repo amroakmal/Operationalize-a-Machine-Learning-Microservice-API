@@ -59,4 +59,16 @@ Steps:
 4- Check it works by running a command `kubectl version`
 Now we're able to make predictions. <br />
 1- Run `./run_docker.sh` <br/>
-2- Run `./make_prediction.sh`
+2- Run `./make_prediction.sh` <br /> <br />
+
+### Directory files description
+1- output_txt_files: For storing the output produced by making predictions using docker and kubernetes.
+2- Dockerfile: Has the necessary steps to setup your docker image and create a container
+3- make_prediction.sh: A shell script that makes a prediction
+4- Makefile: A file where we can split up our steps to several ones and specify a tage name for each step, and able to run steps in the CLI using ``make <step_name``
+5- requirements.txt: Has all the needed libraries and dependencies to be able to complete the project.
+6- run_docker.sh: A template shell script for easness of running steps needed for building a docker image, listing all current containers and creating a container.
+7- run_kubernetes.sh: A shell script for easniss of setting and running a docker container using kubernetes.
+8- upload_docker.sh: A shell script for easeniss of uploading a local Docker image to your Dockerhub online using your unique Docker ID
+
+
