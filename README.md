@@ -26,6 +26,10 @@ Your project goal is to operationalize this working, machine learning microservi
   `source ~/.devops/bin/activate`
   
 * Run `make install` to install the necessary dependencies
+* For Ubuntu users, you must install `hadolint`to the project directory and make sure that its added to the /usr/bin/ 
+To test hadolint alone, run: `hadolint Dockerfile` <br />
+If it did not give any output, this means its working fine. 
+Dockerfile is the file that has the steps to set up your image and create a container later from it.
 
 ### Running `app.py`
 
@@ -54,5 +58,5 @@ Steps:
 4- Make sure it's installed correctly by running `minikube version`
 4- Check it works by running a command `kubectl version`
 Now we're able to make predictions. <br />
-1- Run `./run_docker.sh`
+1- Run `./run_docker.sh` <br/>
 2- Run `./make_prediction.sh`
