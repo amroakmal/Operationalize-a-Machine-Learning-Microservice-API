@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 
 ## Project Overview
 
@@ -17,16 +17,19 @@ Your project goal is to operationalize this working, machine learning microservi
 * Deploy a container using Kubernetes and make a prediction
 * Upload a complete Github repo with CircleCI to indicate that your code has been tested
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
-
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
-
 ---
 
 ## Setup the Environment
 
 * Create a virtualenv and activate it
+  `python3 -m venv ~/.devops` <br />
+  `source ~/.devops/bin/activate`
+  
 * Run `make install` to install the necessary dependencies
+* For Ubuntu users, you must install `hadolint`to the project directory and make sure that its added to the /usr/bin/ 
+To test hadolint alone, run: `hadolint Dockerfile` <br />
+If it did not give any output, this means its working fine. 
+Dockerfile is the file that has the steps to set up your image and create a container later from it.
 
 ### Running `app.py`
 
@@ -34,9 +37,38 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
 
-### Kubernetes Steps
+### Upload Dockerfile to DockerHub
+1. Create an account on DockerHub and have a unique ID 
+2. `./run_docker.sh`
+3. `./upload_docker.sh`
+This operation may take a while to finish.
 
+### Kubernetes Steps
+Our goal:
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
-* Run via kubectl
+* Run via kubectl 
+<br />
+ Minikub MUST be running locally and started before being able to use `kubectl` and execute its commands. <br />
+Steps:
+1- Download and install minikube locally accroding to your operating system
+2- To start minikube run `minikube start`
+3- Install `kubectl` locally
+4- Make sure it's installed correctly by running `minikube version`
+4- Check it works by running a command `kubectl version`
+Now we're able to make predictions. <br />
+1- Run `./run_docker.sh` <br/>
+2- Run `./make_prediction.sh` <br /> <br />
+
+### Directory files description
+1- output_txt_files: For storing the output produced by making predictions using docker and kubernetes.
+2- Dockerfile: Has the necessary steps to setup your docker image and create a container
+3- make_prediction.sh: A shell script that makes a prediction
+4- Makefile: A file where we can split up our steps to several ones and specify a tage name for each step, and able to run steps in the CLI using ``make <step_name``
+5- requirements.txt: Has all the needed libraries and dependencies to be able to complete the project.
+6- run_docker.sh: A template shell script for easness of running steps needed for building a docker image, listing all current containers and creating a container.
+7- run_kubernetes.sh: A shell script for easniss of setting and running a docker container using kubernetes.
+8- upload_docker.sh: A shell script for easeniss of uploading a local Docker image to your Dockerhub online using your unique Docker ID
+
+
